@@ -30,7 +30,7 @@ public class WallBuilder : MonoBehaviour
             BuildRoom(origin, roomSize);
         }
 
-        // Ortada yatay koridor çiz
+    
         for (int i = -1; i <= corridorLength; i++)
         {
             Vector3 posLeft = new Vector3(i * spacing, 0, roomSize * spacing);
