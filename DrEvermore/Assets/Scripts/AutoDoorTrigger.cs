@@ -11,7 +11,7 @@ public class AutoDoorTrigger : MonoBehaviour
         {
             Debug.Log("Trigger'a girildi → Kapı açıldı.");
             if (door != null)
-                door.SetActive(false); // Kapıyı aç (gizle veya animasyon tetikleyebilirsin)
+                door.SetActive(false); // Kapıyı aç 
             
             if (doorAudio != null)
                 doorAudio.Play();
@@ -24,7 +24,7 @@ public class AutoDoorTrigger : MonoBehaviour
         {
             Debug.Log("Trigger'dan çıkıldı → Kapı kapandı.");
             if (door != null)
-                door.SetActive(true); // Kapıyı kapat (göster veya animasyon tetikleyebilirsin)
+                door.SetActive(true); // Kapıyı kapat 
         }
     }
 }
