@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FloorTiler : MonoBehaviour
 {
-    public GameObject floorPrefab;  // 👈 Bu kesinlikle olmalı
+    public GameObject floorPrefab; 
     public int gridX = 10;
     public int gridZ = 10;
     public float tileSpacing = 1f;
