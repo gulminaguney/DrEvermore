@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("LabScene");  // Gerçek sahne adınla değiştir
+        SceneManager.LoadScene("DrEvermore"); 
     }
 
     public void QuitGame()
