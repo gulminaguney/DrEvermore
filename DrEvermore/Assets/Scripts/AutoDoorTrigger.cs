@@ -3,7 +3,7 @@ using UnityEngine;
 public class AutoDoorTrigger : MonoBehaviour
 {
     public GameObject door; // Açılıp kapanacak kapı
-    public AudioSource doorAudio; // Opsiyonel: kapı sesi
+    public AudioSource doorAudio; // kapı sesi
 
     private void OnTriggerEnter(Collider other)
     {
