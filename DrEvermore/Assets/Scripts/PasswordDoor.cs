@@ -11,18 +11,18 @@ public class PasswordDoor : MonoBehaviour
     public GameObject door;                        // Kapı objesi
     public AudioSource doorAudio;                  // Kapı sesi
 
-    private bool isPlayerNear = false;             // Oyuncu trigger'da mı
+    private bool isPlayerNear = false;             // Oyuncu triggerda mı
     private bool inputActive = false;              // Input aktif mi
     private bool doorOpened = false;               // Kapı açıldı mı
 
     void Start()
     {
-        passwordPanel.SetActive(false); // Oyun başında panel gizli başlar
+        passwordPanel.SetActive(false); // Oyun başladığında panel gizli
     }
 
     void Update()
     {
-        // Oyuncu trigger içindeyse ve Enter'a bastıysa input aktifleşir
+        // player trigger içindeyse ve Entera bastıysa input aktifleşir
         if (isPlayerNear && !inputActive && !doorOpened)
         {
             if (Input.GetKeyDown(KeyCode.Return))
@@ -33,7 +33,7 @@ public class PasswordDoor : MonoBehaviour
             }
         }
 
-        // Input aktifse ve Enter'a basıldıysa şifre kontrol edilir
+        // Input aktifse ve Entera basıldıysa şifre kontrol edilir
         if (inputActive && Input.GetKeyDown(KeyCode.Return))
         {
             CheckPassword();
@@ -44,13 +44,13 @@ public class PasswordDoor : MonoBehaviour
     {
         if (passwordInput.text.Trim().ToLower() == correctPassword.ToLower())
         {
-            Debug.Log("✅ Şifre doğru! Kapı açılıyor...");
+            Debug.Log("Şifre doğru.");
             OpenDoor();
             ClosePanel();
         }
         else
         {
-            Debug.Log("❌ Şifre yanlış.");
+            Debug.Log("Şifre yanlış.");
             passwordInput.text = "";
             passwordInput.ActivateInputField();
         }
@@ -60,12 +60,12 @@ public class PasswordDoor : MonoBehaviour
     {
         if (doorAudio != null && doorAudio.clip != null)
         {
-            doorAudio.Play(); // 🔊 Ses çal
+            doorAudio.Play(); // kapı sesi
         }
 
         if (door != null)
         {
-            // Ses süresinden sonra kapıyı yok et
+            // Ses bitince kapıyı yok et
             float delay = (doorAudio != null && doorAudio.clip != null) ? doorAudio.clip.length : 0.5f;
             StartCoroutine(CloseDoorAfterDelay(delay));
         }
@@ -76,7 +76,7 @@ public class PasswordDoor : MonoBehaviour
     IEnumerator CloseDoorAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        door.SetActive(false); // 🔓 Kapı görünmez olur (sahneden yok edilir)
+        door.SetActive(false); // Kapı görünmez olur 
     }
 
     void ClosePanel()
@@ -91,7 +91,7 @@ public class PasswordDoor : MonoBehaviour
         {
             passwordPanel.SetActive(true);
             isPlayerNear = true;
-            Debug.Log("🟢 Oyuncu trigger'a girdi → panel açıldı.");
+            Debug.Log("Oyuncu triggera girdi ");
         }
     }
 
@@ -104,7 +104,7 @@ public class PasswordDoor : MonoBehaviour
             passwordInput.DeactivateInputField();
             isPlayerNear = false;
             inputActive = false;
-            Debug.Log("🔴 Oyuncu trigger'dan çıktı → panel kapandı.");
+            Debug.Log("Oyuncu triggerdan çıktı ");
         }
     }
 }
