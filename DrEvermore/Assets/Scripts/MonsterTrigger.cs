@@ -4,7 +4,7 @@ public class MonsterTrigger : MonoBehaviour
 {
     public GameObject monster;
     public AudioSource monsterAudio;
-    public float visibleTime = 2f; // Kaç saniye görünür kalsın
+    public float visibleTime = 2f; // Ne kadar ekranda kalcağını gösteren yer
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class MonsterTrigger : MonoBehaviour
             if (monsterAudio != null)
                 monsterAudio.Play();
 
-            Invoke("HideMonster", visibleTime); // Belirli süre sonra kaybol
+            Invoke("HideMonster", visibleTime); // Belirli süre sonra kaybolur
         }
     }
 
